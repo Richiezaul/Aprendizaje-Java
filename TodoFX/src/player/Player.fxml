@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="player.MainController">
+   <bottom>
+      <AnchorPane prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Slider layoutX="77.0" layoutY="7.0" prefHeight="14.0" prefWidth="486.0" />
+            <Slider fx:id="volumeSlider" layoutX="432.0" layoutY="32.0" majorTickUnit="50.0" showTickLabels="true" showTickMarks="true" value="50.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Slider>
+            <Button layoutX="259.0" layoutY="26.0" mnemonicParsing="false" onAction="#play" text="play" />
+            <Button layoutX="173.0" layoutY="26.0" mnemonicParsing="false" onAction="#start" text="Start" />
+            <Button layoutX="340.0" layoutY="26.0" mnemonicParsing="false" onAction="#last" text="Last" />
+            <Label fx:id="durationtx" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="30.0" prefWidth="60.0" text="00:00" />
+            <ComboBox fx:id="combo" layoutX="14.0" layoutY="39.0" prefHeight="14.0" prefWidth="36.0" />
+            <Button layoutX="168.0" layoutY="52.0" mnemonicParsing="false" onAction="#pause" text="Pause" />
+            <Button layoutX="252.0" layoutY="52.0" mnemonicParsing="false" onAction="#reload" text="Reload" />
+            <Button layoutX="334.0" layoutY="52.0" mnemonicParsing="false" onAction="#fast" text="Fast" />
+            <Button layoutX="109.0" layoutY="48.0" mnemonicParsing="false" onAction="#slow" text="Slow" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="57.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="267.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView layoutX="-36.0" prefHeight="347.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="267.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView layoutX="-2.0" layoutY="34.0" prefHeight="347.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <MediaView fx:id="mv" fitHeight="340.0" fitWidth="340.0" BorderPane.alignment="CENTER">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </MediaView>
+   </center>
+</BorderPane>
